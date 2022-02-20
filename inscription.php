@@ -18,7 +18,7 @@
            <input type="email" name="email" id="email"><br>
            <label for="mdp">Mot de passe:</label>
            <input type="password" name="mot_de_passe1" id="mdp"><br>
-           <label for="mdp">Confirmer:</label>
+           <label for="mdp2">Confirmer:</label>
            <input type="password" name="mot_de_passe2" id="mdp"><br>
            <input type="submit" value="Envoyer">
            
