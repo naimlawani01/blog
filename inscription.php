@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['nom']) and isset($_POST['prenom'])){
+    if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['email']) and isset($_POST['mot_de_passe1']) and isset($_POST['mot_de_passe2'])){
         
     }
 ?>
