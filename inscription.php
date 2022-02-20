@@ -1,3 +1,9 @@
+<?php
+    if(isset($_POST['nom']) and isset($_POST['prenom'])){
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +13,7 @@
     <title>Inscription</title>
 </head>
 <body>
-   <form action="">
+   <form method="POST" action="">
        <fieldset>
            <legend>Informations Personnelles</legend>
            <label for="nom">Nom: </label>
