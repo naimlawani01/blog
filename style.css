@@ -1,0 +1,54 @@
+.boite1 > .droite, .boite3 > .droite, .boite4 > .droite
+{
+    float: right;
+}
+.boite5
+{
+    clear: right;
+}
+
+.boite1 > .gauche, .boite3 > .gauche, .boite4 > .gauche
+{
+    float: left;
+}
+.boite2 >.milieu
+{
+    position: relative;
+    clear: right;
+}
+.boite4
+{
+    clear: right;
+}
+.formu1
+{
+    display: table;
+    width: 900px;
+    margin:100px  auto;
+    padding: 50px;
+   
+    
+}
+
+input{
+    width: 400px;
+    height: 50px;
+    font-size: 30px;
+    margin-top: 10px;
+    padding-left: 15px;
+    
+   
+}
+label
+{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.droite
+{
+    margin-left: 30px;
+}
+.email
+{
+    width:880px;
+}
