@@ -1,3 +1,9 @@
+body
+{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    background-color:rgb(241, 241, 238);
+}
 .boite1 > .droite, .boite3 > .droite, .boite4 > .droite
 {
     float: right;
@@ -33,16 +39,17 @@
 input{
     width: 400px;
     height: 50px;
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 10px;
     padding-left: 15px;
+    border-radius: 4px;
     
    
 }
 label
 {
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    
 }
 .droite
 {
@@ -52,3 +59,13 @@ label
 {
     width:880px;
 }
+.envoyer
+{
+    color: white;
+    margin-top: 30px ;
+    border-style: outset;
+    background-color: #0066A2;
+    width: 250px;
+    border-radius: 7px;
+}
+

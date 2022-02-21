@@ -80,7 +80,7 @@ require('database.php');
                 <input type="password" name="mdp2" id="mdp2" placeholder="Your Password">
             </div>
         </div>
-        <input type="submit" value="Enregister" name="envoyer">
+        <input class="envoyer" type="submit" value="Enregister" name="envoyer">
     </form>
     
     
