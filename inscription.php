@@ -46,41 +46,41 @@ require('database.php');
         <div class="boite1">
             <div class="gauche">
                 <label for="prenom">First Name</label><br>
-                <input type="text" name="prenom" id="prenom" placeholder="e.g John">
+                <input type="text" name="prenom" id="prenom" placeholder="e.g John" require>
             </div>
             <div class="droite">
                 <label for="nom">Last Name</label><br>
-                <input type="text" name="nom" id="nom" placeholder="e.g Smith">
+                <input type="text" name="nom" id="nom" placeholder="e.g Smith" require>
             </div>
 
         </div>
         <div class="boite2">
             <div class="milieu">
                 <label for="email">Email Adress</label><br>
-                <input class="email" type="text" id="email" name="email" placeholder="e.g john@your-domain.com">
+                <input class="email" type="text" id="email" name="email" placeholder="e.g john@your-domain.com" require>
             </div>
         </div>
         <div class="boite3">
             <div class="gauche">
                 <label for="numero">Phone Number</label><br>
-                <input type="text" name="prenom" id="numero" placeholder="+00 0000 000 0000">
+                <input type="text" name="prenom" id="numero" placeholder="+00 0000 000 0000" require>
             </div>
             <div class="droite">
                 <label for="siteweb">Website</label><br>
-                <input type="text" name="site" id="siteweb" placeholder="e.g https://google.com">
+                <input type="text" name="site" id="siteweb" placeholder="e.g https://google.com" require>
             </div>
         </div>
         <div class="boite4">
             <div class="gauche">
                 <label for="mdp1">Password</label><br>
-                <input type="password" name="mdp1" id="mdp1" placeholder="Your Password">
+                <input type="password" name="mdp1" id="mdp1" placeholder="Your Password" require>
             </div>
             <div class="droite">
                 <label for="mdp2">Retype Password</label><br>
-                <input type="password" name="mdp2" id="mdp2" placeholder="Your Password">
+                <input type="password" name="mdp2" id="mdp2" placeholder="Your Password" require>
             </div>
         </div>
-        <input class="envoyer" type="submit" value="Enregister" name="envoyer">
+        <input class="envoyer" type="submit" value="Enregister" name="envoyer" require>
     </form>
     
     
