@@ -1,71 +1,67 @@
-body
-{
+body {
     font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    background-color:rgb(241, 241, 238);
+    background-color: rgb(241, 241, 238);
 }
-.boite1 > .droite, .boite3 > .droite, .boite4 > .droite
-{
+
+.boite1>.droite,
+.boite3>.droite,
+.boite4>.droite {
     float: right;
 }
-.boite5
-{
+
+.boite5 {
     clear: right;
 }
 
-.boite1 > .gauche, .boite3 > .gauche, .boite4 > .gauche
-{
+.boite1>.gauche,
+.boite3>.gauche,
+.boite4>.gauche {
     float: left;
 }
-.boite2 >.milieu
-{
+
+.boite2>.milieu {
     position: relative;
     clear: right;
 }
-.boite4
-{
+
+.boite4 {
     clear: right;
 }
-.formu1
-{
+
+.formu1 {
     display: table;
     width: 900px;
-    margin:100px  auto;
+    margin: 100px auto;
     padding: 50px;
-   
-    
 }
 
-input{
+input {
     width: 400px;
     height: 50px;
-    font-size: 20px;
+    font-size: 16px;
     margin-top: 10px;
     padding-left: 15px;
     border-radius: 4px;
-    
-   
 }
-label
-{
-    font-size: 28px;
-    
+
+label {
+    /* font-size: 28px; */
+    font-weight: 400;
 }
-.droite
-{
+
+.droite {
     margin-left: 30px;
 }
-.email
-{
-    width:880px;
+
+.email {
+    width: 880px;
 }
-.envoyer
-{
+
+.envoyer {
     color: white;
-    margin-top: 30px ;
+    margin-top: 30px;
     border-style: outset;
     background-color: #0066A2;
     width: 250px;
     border-radius: 7px;
 }
-

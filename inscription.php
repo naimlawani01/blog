@@ -2,22 +2,38 @@
 require('database.php');
    //verifie si les champs sont saisis
 
-    if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['email']) and isset($_POST['mot_de_passe1']) and isset($_POST['mot_de_passe2']))
-    {
+    if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['email']) and isset($_POST['mdp1']) and isset($_POST['mdp2'])){
         $nom=$_POST['nom'];
         $prenom=$_POST['prenom'];
         $email=$_POST['email'];
-        $mdp1=$_POST['mot_de_passe1'];
-        $mdp2=$_POST['mot_de_passe2'];
+        $mdp1=$_POST['mdp1'];
+        $mdp2=$_POST['mdp2'];
         if($mdp1==$mdp2)
         {
-            $mdp =sha1($mdp1);
-            $insertion = $db->prepare('INSERT INTO users (nom, prenom, email,mot_de_passe) VALUES (?,?,?,?)');
-            $insertion->execute(array($nom, $prenom, $email,$mdp));
+            if(strlen($mdp1)>=7){
 
-        }
-        else
-        {
+                $user_exist= $db->prepare('SELECT * FROM users WHERE email= ? ');
+
+                $user_exist->execute([
+                    $email
+                ]);
+
+                $user = $user_exist->fetchAll();
+                if(count($user)>0){
+                    echo "Cette adresse mail est deja utilisé";
+                }else{
+
+                    $mdp =sha1($mdp1);
+                    $insertion = $db->prepare('INSERT INTO users (nom, prenom, email,mot_de_passe) VALUES (?,?,?,?)');
+                    $insertion->execute(array($nom, $prenom, $email,$mdp));
+                    header('location: connexion.php');
+                }
+
+            }else{
+                echo "Votre mot de passe est trop court(<7)";
+            }
+
+        }else{
             echo "Les deux(2) mots de passes ne sont pas identiques";
         }
 
@@ -40,34 +56,24 @@ require('database.php');
 
 </head>
 <body>
-    <form action="" class="formu1">
+    <form action="" method="POST" class="formu1">
         <h1>Register</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eaque blanditiis non repudiandae totam magnam autem quae eum unde, nihil tenetur dicta voluptate tempore dolorem natus consectetur asperiores! Ab, quasi?</p>
         <div class="boite1">
             <div class="gauche">
-                <label for="prenom">First Name</label><br>
+                <label for="prenom">Prenom</label><br>
                 <input type="text" name="prenom" id="prenom" placeholder="e.g John" require>
             </div>
             <div class="droite">
-                <label for="nom">Last Name</label><br>
+                <label for="nom">Nom</label><br>
                 <input type="text" name="nom" id="nom" placeholder="e.g Smith" require>
             </div>
 
         </div>
         <div class="boite2">
             <div class="milieu">
-                <label for="email">Email Adress</label><br>
+                <label for="email">Email</label><br>
                 <input class="email" type="text" id="email" name="email" placeholder="e.g john@your-domain.com" require>
-            </div>
-        </div>
-        <div class="boite3">
-            <div class="gauche">
-                <label for="numero">Phone Number</label><br>
-                <input type="text" name="prenom" id="numero" placeholder="+00 0000 000 0000" require>
-            </div>
-            <div class="droite">
-                <label for="siteweb">Website</label><br>
-                <input type="text" name="site" id="siteweb" placeholder="e.g https://google.com" require>
             </div>
         </div>
         <div class="boite4">
