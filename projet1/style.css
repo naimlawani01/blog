@@ -1,0 +1,124 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #141414;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.page
+{
+    margin: 20px 80px;
+}
+nav
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: sticky;
+    top:0; 
+    background-color: #141414;  
+    padding: 10px 0px; 
+   
+}
+ nav div.gauche
+{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5px;
+    
+}
+nav div.gauche p
+{
+    
+   margin-left: 10px;
+   cursor: pointer;
+
+}
+nav div.droite
+{
+    padding: 8px 0px;
+}
+nav div.droite button
+{
+    padding: 15px 25px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+nav div.droite button.btn1
+{
+    background-color: inherit;
+    margin-right: 10px;
+    color: #8f8f8f;
+    
+   
+}
+nav div.droite button.btn2
+{
+    background-color: #f54266;
+    margin-right: 10px;
+    color: #fff;
+    
+}
+header
+{
+    margin-top: 100px;
+    background: url("logo1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 300px 300px;
+
+}
+ header h1
+{
+    font-size: 50px;
+    text-align: center;
+    padding: 150px;
+    
+    
+} 
+footer
+{
+    background-color: #828282;
+    padding:25px 100px ;
+}
+
+footer div.colonnes
+{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 50px;
+}
+footer div.colonnes  div p
+{
+    cursor: pointer;   
+}
+@media screen and (max-width:640px) {
+    .page
+    {
+        margin: 10px;
+    }
+    header
+    {
+        margin-top: 20px;
+        background-size: 250px 250px;
+    }
+    header h1 
+    {
+        font-size: 25px;
+        text-align: center;
+        padding: 100px;
+    }
+    
+    nav div.gauche
+    {
+        display: none;
+    }
+    footer div.colonnes
+    {
+        display: block;
+        padding: 3px 20px;
+    }
+    
+}
