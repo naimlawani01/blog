@@ -20,7 +20,7 @@ require('database.php');
 
                 $user = $user_exist->fetchAll();
                 if(count($user)>0){
-                    echo "Cette adresse mail est deja utilisé";
+                    echo "Cette adresse mail est deja utilisée";
                 }else{
 
                     $mdp =sha1($mdp1);
