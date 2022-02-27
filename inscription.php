@@ -1,47 +1,12 @@
 <?php
-require('database.php');
-   //verifie si les champs sont saisis
-
-    if(isset($_POST['nom']) and isset($_POST['prenom']) and isset($_POST['email']) and isset($_POST['mdp1']) and isset($_POST['mdp2'])){
-        $nom=$_POST['nom'];
-        $prenom=$_POST['prenom'];
-        $email=$_POST['email'];
-        $mdp1=$_POST['mdp1'];
-        $mdp2=$_POST['mdp2'];
-        if($mdp1==$mdp2)
-        {
-            if(strlen($mdp1)>=7){
-
-                $user_exist= $db->prepare('SELECT * FROM users WHERE email= ? ');
-
-                $user_exist->execute([
-                    $email
-                ]);
-
-                $user = $user_exist->fetchAll();
-                if(count($user)>0){
-                    echo "Cette adresse mail est deja utilisée";
-                }else{
-
-                    $mdp =sha1($mdp1);
-                    $insertion = $db->prepare('INSERT INTO users (nom, prenom, email,mot_de_passe) VALUES (?,?,?,?)');
-                    $insertion->execute(array($nom, $prenom, $email,$mdp));
-                    header('location: connexion.php');
-                }
-
-            }else{
-                echo "Votre mot de passe est trop court(<7)";
-            }
-
-        }else{
-            echo "Les deux(2) mots de passes ne sont pas identiques";
-        }
-
-    }
+    session_start();
+    require('database.php');
+    require('function.php');
+    require_once('controller/inscriptioncontroll.php');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,16 +14,18 @@ require('database.php');
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+    <?php require_once('header.php'); ?>
     <form action="" method="POST" class="formu1">
         <h1>Register</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eaque blanditiis non repudiandae totam magnam autem quae eum unde, nihil tenetur dicta voluptate tempore dolorem natus consectetur asperiores! Ab, quasi?</p>
+        <?php if(isset($$error)):?>
+            <p style="color: red;">
+                <?= $error ?>
+            </p>
+        <?php endif;?>        
         <div class="boite1">
             <div class="gauche">
                 <label for="prenom">Prenom</label><br>
@@ -89,7 +56,9 @@ require('database.php');
         <input class="envoyer" type="submit" value="Enregister" name="envoyer" require>
     </form>
     
-    
-    
+    <?php require_once('footer.php'); ?>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
